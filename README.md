@@ -15,6 +15,8 @@ npm run update:index
 
 ## Cloudflare Pages
 
+Root directory 留空，框架预设选择 `None`。
+
 构建命令：
 
 ```bash
@@ -26,3 +28,5 @@ npm run build
 ```text
 dist
 ```
+
+Node.js 版本由仓库根目录的 `.node-version` / `.nvmrc` 固定为 `22.16.0`。
