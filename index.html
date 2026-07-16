@@ -13,6 +13,49 @@
   <div id="app"></div>
 
   <script>
+    function renderKatex(math, displayMode) {
+      if (!window.katex) return null;
+
+      return katex.renderToString(math, {
+        displayMode: displayMode,
+        throwOnError: false
+      });
+    }
+
+    function replaceMath(text) {
+      text = text.replace(/\$\$([\s\S]+?)\$\$/g, function (_, math) {
+        return renderKatex(math, true) || _;
+      });
+
+      text = text.replace(/\\\[([\s\S]+?)\\\]/g, function (_, math) {
+        return renderKatex(math, true) || _;
+      });
+
+      text = text.replace(/\\\(([\s\S]+?)\\\)/g, function (_, math) {
+        return renderKatex(math, false) || _;
+      });
+
+      return text.replace(/(^|[^\\])\$([^\n$]+?)\$/g, function (_, prefix, math) {
+        return prefix + (renderKatex(math, false) || ('$' + math + '$'));
+      });
+    }
+
+    function renderMathInMarkdown(markdown) {
+      return markdown
+        .split(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g)
+        .map(function (block, index) {
+          if (index % 2 === 1) return block;
+
+          return block
+            .split(/(`+[^`\n]*`+)/g)
+            .map(function (part, partIndex) {
+              return partIndex % 2 === 1 ? part : replaceMath(part);
+            })
+            .join('');
+        })
+        .join('');
+    }
+
     window.$docsify = {
       name: '我的文档',
       repo: '',
@@ -29,31 +72,23 @@
       markdown: {
         smartypants: true
       },
+      plugins: [
+        function (hook) {
+          hook.beforeEach(function (markdown, next) {
+            next(renderMathInMarkdown(markdown));
+          });
+        }
+      ],
       // 404页面兜底
       notFoundPage: '_404.md'
     }
   </script>
 
+  <!-- KaTeX 数学公式渲染 -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
   <!-- Docsify 核心与搜索插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
-  <!-- KaTeX 数学公式渲染 -->
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "\\(", right: "\\)", display: false },
-          { left: "\\[", right: "\\]", display: true },
-          { left: "$", right: "$", display: false }
-        ],
-        ignoredTags: ["pre", "code"],
-        throwOnError: false
-      });
-    });
-  </script>
 </body>
 </html>
