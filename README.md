@@ -8,7 +8,21 @@
 新增或删除 `blog` 目录下的 `.md` 文件后，运行：
 
 ```bash
-node scripts/update-blog-index.mjs
+npm run update:index
 ```
 
 提交到 GitHub 后，GitHub Actions 会自动生成文章目录并发布到 GitHub Pages。
+
+## Cloudflare Pages
+
+构建命令：
+
+```bash
+npm run build
+```
+
+输出目录：
+
+```text
+dist
+```

@@ -31,8 +31,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Generate blog index
-        run: node scripts/update-blog-index.mjs
+      - name: Build site
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
