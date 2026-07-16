@@ -16,6 +16,14 @@ timezone: Asia/Shanghai
 # 3. 开启数学公式全局支持
 math: true
 
+kramdown:
+  input: GFM
+  hard_wrap: false
+  # 添加以下配置来支持单美刀符号行内公式
+  math_engine: mathjax # 或者 katex，取决于你 Chirpy 内部使用的引擎
+  math_engine_opts:
+    allow_single_dollar: true
+    
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
