@@ -1,3 +1,0 @@
-所有页面末尾只加一行，实现统一引入，不用复制一大段 KaTeX 代码
-
-<script src="/katex-load.js"></script>
