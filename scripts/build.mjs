@@ -1,6 +1,7 @@
 import { cp, mkdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { blogDirs } from './site-config.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(scriptDir, '..');
@@ -17,7 +18,7 @@ const siteEntries = [
   '_sidebar.md',
   '_404.md',
   '.nojekyll',
-  'blog',
+  ...blogDirs,
 ];
 
 for (const entry of siteEntries) {

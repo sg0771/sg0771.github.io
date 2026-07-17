@@ -1,11 +1,21 @@
 # 我的文档
-所有文章存放在 blog 目录。
+所有文章存放在 `scripts/site-config.mjs` 配置的目录。
 
 [进入文章目录](/blog/)
 
+## 多目录
+
+编辑 `scripts/site-config.mjs`：
+
+```js
+export const blogDirs = ['blog1', 'blog2'];
+```
+
+每个目录都会生成自己的 `README.md` 文章目录，并在构建时复制到 `dist`。
+
 ## 更新文章目录
 
-新增或删除 `blog` 目录下的 `.md` 文件后，运行：
+新增或删除文章目录下的 `.md` 文件后，运行：
 
 ```bash
 npm run update:index
