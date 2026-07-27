@@ -1,1 +1,1 @@
-export const blogDirs = ['blog', 'noi'];
+export const blogDirs = ['apowersoft', 'blog', 'noi'];
