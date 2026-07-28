@@ -12,7 +12,14 @@ Win10/11 可以尝试
 在系统 的  设置-语言-相关设置-管理语言设置-区域-非Unicode-更改系统区域设置-区域设置里面
 在 Beta版：使用Unicode UTF-8 提供全球语言设置(U) 前面打勾重启电脑
 
-![样例示意图](https://blog.xkt.space/asf/utf8.jpg "UTF解决")
+![UTF-8解决](https://blog.xkt.space/asf/utf8.jpg "UTF-8解决")
+
+
+#  Win11 智能应用控制
+可能导致部分机器无法启动程序
+
+![智能应用控制](https://blog.xkt.space/asf/win11_audo_control.png "智能应用控制")
+
 
 #  运行环境问题
 
