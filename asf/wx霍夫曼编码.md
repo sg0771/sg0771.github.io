@@ -1,0 +1,95 @@
+#include <iostream>
+#include <queue>
+#include <unordered_map>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+// 霍夫曼树节点结构
+struct HuffmanNode {
+    char data;      // 字符
+    size_t freq;    // 频率
+    HuffmanNode *left, *right;
+
+    HuffmanNode(char data, size_t freq) : data(data), freq(freq), left(nullptr), right(nullptr) {}
+    ~HuffmanNode() {
+        delete left;
+        delete right;
+    }
+};
+
+// 比较仿函数，用于最小堆（优先队列）
+struct Compare {
+    bool operator()(HuffmanNode* l, HuffmanNode* r) {
+        return l->freq > r->freq; // 频率小的优先级高
+    }
+};
+
+// 递归遍历霍夫曼树，生成编码
+void generateCodes(HuffmanNode* root, const string& str, unordered_map<char, string>& huffmanCode) {
+    if (!root) return;
+
+    // 如果是叶子节点，记录编码
+    if (!root->left && !root->right) {
+        huffmanCode[root->data] = str;
+    }
+
+    generateCodes(root->left, str + "0", huffmanCode);
+    generateCodes(root->right, str + "1", huffmanCode);
+}
+
+// 构建霍夫曼树并输出编码
+void buildHuffmanTree(const string& text) {
+    // 1. 统计字符频率
+    unordered_map<char, size_t> freq;
+    for (char ch : text) {
+        freq[ch]++;
+    }
+
+    // 2. 将节点放入最小堆
+    priority_queue<HuffmanNode*, vector<HuffmanNode*>, Compare> minHeap;
+    for (auto pair : freq) {
+        minHeap.push(new HuffmanNode(pair.first, pair.second));
+    }
+
+    // 3. 循环合并节点，直到只剩一个根节点
+    while (minHeap.size() != 1) {
+        HuffmanNode* left = minHeap.top(); minHeap.pop();
+        HuffmanNode* right = minHeap.top(); minHeap.pop();
+
+        // 创建内部节点，字符设为 '\0' 或任意占位符
+        HuffmanNode* top = new HuffmanNode('\0', left->freq + right->freq);
+        top->left = left;
+        top->right = right;
+
+        minHeap.push(top);
+    }
+
+    // 4. 获取根节点并生成编码
+    HuffmanNode* root = minHeap.top();
+    unordered_map<char, string> huffmanCode;
+    generateCodes(root, "", huffmanCode);
+
+    // 5. 打印结果
+    cout << "--- 霍夫曼编码结果 ---\n";
+    for (auto pair : huffmanCode) {
+        cout << pair.first << " : " << pair.second << "\n";
+    }
+
+    cout << "\n原始字符串: " << text << "\n";
+    cout << "编码后序列: ";
+    for (char ch : text) {
+        cout << huffmanCode[ch];
+    }
+    cout << "\n";
+
+    // 释放内存
+    delete root;
+}
+
+int main() {
+    string text = "BCAADDDCCAC";
+    buildHuffmanTree(text);
+    return 0;
+}
