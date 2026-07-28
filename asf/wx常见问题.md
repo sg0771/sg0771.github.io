@@ -1,4 +1,4 @@
-# ApowerSoft 运行环境
+#  运行环境问题
 
 ## 显卡驱动
 360驱动大师/驱动精灵
@@ -38,7 +38,7 @@ Windows系统日志提示 Automation.Peer 时检查是是否存在更新 kb:5011
 ### C#日志提示
 
 ~~~cpp
-    2025-12-30 09:29:02,741 ERROR [27] [0] - LoadFile:System.TypeInitializationException: “Apowersoft.VideoEditor.Infrastructure.Extension.FileExt”的类型初始值设定项引发异常。 ---> System.InvalidOperationException: 此实现不是 Windows 平台 FIPS 验证的加密算法的一部分。
+    2025-12-30 09:29:02,741 ERROR [27] [0] - LoadFile:System.TypeInitializationException: XXXXXXX.VideoEditor.Infrastructure.Extension.FileExt”的类型初始值设定项引发异常。 ---> System.InvalidOperationException: 此实现不是 Windows 平台 FIPS 验证的加密算法的一部分。
 ~~~
 
 ### 该错误核心原因

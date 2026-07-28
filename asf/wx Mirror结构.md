@@ -1,10 +1,6 @@
 ﻿# ApowerMirror DLL dependency table
 
-Root: C:\Program Files (x86)\Apowersoft\ApowerMirror
-Generated: 2026-07-06 14:21:13 +08:00
-DLL files found: 110
-Native DLLs included: 68
-Managed/C# DLLs skipped: 42
+
 
 Only dependencies that point to DLL files present under the same directory tree are listed.
 
@@ -20,7 +16,6 @@ Only dependencies that point to DLL files present under the same directory tree 
 | agora_rtc_sdk.dll | libagora-mpg123.dll | normal | libagora-mpg123.dll |
 | agora_rtc_sdk.dll | libagora-soundtouch.dll | normal | libagora-soundtouch.dll |
 | agora_rtc_sdk.dll | libhwcodec.dll | normal | libhwcodec.dll |
-| Apowersoft.LibChromecastWrapper.dll | libchromecast.dll | normal | libchromecast.dll |
 | av1.dll | (none) |  |  |
 | Blink.dll | msvcp60.dll | normal | msvcp60.dll |
 | D3DCompiler_43.dll | (none) |  |  |
@@ -108,46 +103,3 @@ Only dependencies that point to DLL files present under the same directory tree 
 | WXTcpMedia.dll | WXMedia.dll | normal | WXMedia.dll |
 | zlib1.dll | (none) |  |  |
 
-## Skipped managed/C# DLLs
-- Adorners.dll
-- Aliyun.Log.dll
-- Aliyun.OSS.dll
-- Apowersoft.ApowerMirror.WPF.dll
-- Apowersoft.CommUtilities.Base.V2.dll
-- Apowersoft.CommUtilities.Services.Base.dll
-- Apowersoft.Commutilities.Services.Http.dll
-- Apowersoft.CommUtilities.Services.Oss.dll
-- Apowersoft.CommUtilities.Services.RecCloud.dll
-- Apowersoft.Utils.Record.dll
-- Apowersoft.Utils.ScreenRecorder.Imaging.dll
-- ApowersoftMiniBlink.dll
-- ApowersoftWinApi.dll
-- CSCore.dll
-- DirectShowLib.dll
-- Google.ProtocolBuffers.dll
-- Interop.NETCONLib.dll
-- libwxbtc.dll
-- log4net.dll
-- LZ4Sharp.dll
-- Microsoft.Expression.Interactions.dll
-- Newtonsoft.Json.dll
-- QRCoder.dll
-- SharpVectors.Converters.Wpf.dll
-- SharpVectors.Core.dll
-- SharpVectors.Css.dll
-- SharpVectors.Dom.dll
-- SharpVectors.Model.dll
-- SharpVectors.Rendering.Gdi.dll
-- SharpVectors.Rendering.Wpf.dll
-- SharpVectors.Runtime.Wpf.dll
-- SuperSocket.Common.dll
-- SuperSocket.SocketBase.dll
-- SuperSocket.SocketEngine.dll
-- SuperWebSocket.dll
-- Svg.dll
-- System.Windows.Interactivity.dll
-- WebSocket4Net.dll
-- websocket-sharp.dll
-- WxWiFi.dll
-- XamlAnimatedGif.dll
-- zxing.dll

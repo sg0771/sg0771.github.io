@@ -1,0 +1,19 @@
+使用VS2017编译项目的时候，遇到了无法连接成功的问题：
+
+LINK : the 32-bit linker (C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.16.27023\bin\HostX86\x86\link.exe) failed to do memory mapped file I/O on `..\..\..\..\..\..\lib\x86\Release\skia.lib' and is going to restart linking with a 64-bit linker for better throughput
+
+LINK : restarting link with 64-bit linker
+
+
+
+解决方法：
+
+打开项目文件 *.vcxproj，搜索 "<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />" ，在底下添加：
+
+
+
+<PropertyGroup>
+
+<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+
+</PropertyGroup>
