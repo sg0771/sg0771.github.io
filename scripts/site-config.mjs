@@ -1,1 +1,1 @@
-export const blogDirs = ['asf', 'image','media', 'noi','tam'];
+export const blogDirs = ['asf', 'image','media', 'tam'];
