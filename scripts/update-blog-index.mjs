@@ -38,12 +38,13 @@ for (const dir of blogDirs) {
       })
       .sort((a, b) => b.localeCompare(a, 'zh-Hans-CN'));
 
-    lines = [
+lines = [
       '# 图片图库',
       `所有图片存放在 ${dir} 目录，以下为预览：`,
       '',
-      // 使用 Markdown 的图片语法: ![alt](url)
-      ...images.map((name) => `![${name}](${toRoute(dir, name)})`),
+      // 修改这里：不使用 toRoute，直接使用 ./文件名 作为同级相对路径
+      // 使用 encodeURIComponent 确保包含空格或特殊字符的文件名也能被正确识别
+      ...images.map((name) => `![${name}](./${encodeURIComponent(name)})`),
       '',
     ];
   } 
