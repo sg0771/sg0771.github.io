@@ -74,7 +74,7 @@ Android 中利用 AudioRecord 可以录制声音，录制出来的声音是 PCM 
 
 目前比较主流的视频推流协议有 RTMP 协议、RTSP 协议。
 
-### 7. 需要用到的技术
+## 7. 需要用到的技术
 
 涉及到如下技术，我将从图像、音频、视频的顺序来罗列：
 * Camera、Camera2。
@@ -89,15 +89,3 @@ Android 中利用 AudioRecord 可以录制声音，录制出来的声音是 PCM 
 * ffmpeg、ijkplayer。
 * RTMP、RTSP。
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-原文作者: 况众文
