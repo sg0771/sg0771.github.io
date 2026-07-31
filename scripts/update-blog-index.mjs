@@ -34,11 +34,11 @@ for (const dir of blogDirs) {
       .map((entry) => entry.name)
       .filter((name) => {
         const ext = name.toLowerCase();
-        return ext.endsWith('.jpg') || ext.endsWith('.png') || ext.endsWith('.webp');
+        return ext.endsWith('.jpg')|| ext.endsWith('.gif')  || ext.endsWith('.png') || ext.endsWith('.webp');
       })
       .sort((a, b) => b.localeCompare(a, 'zh-Hans-CN'));
 
-lines = [
+    lines = [
       '# 图片图库',
       `所有图片存放在 ${dir} 目录，以下为预览：`,
       '',
@@ -47,6 +47,7 @@ lines = [
       ...images.map((name) => `![${name}](./${encodeURIComponent(name)})`),
       '',
     ];
+    await writeFile(indexPath, lines.join('<br>\n'), 'utf8');
   } 
   // 保持原有逻辑：处理普通的 markdown 博客文章
   else {
@@ -65,9 +66,10 @@ lines = [
       ...posts.map((name) => `- [${toTitle(name)}](${toRoute(dir, name)})`),
       '',
     ];
+    await writeFile(indexPath, lines.join('\n'), 'utf8');
   }
 
-  await writeFile(indexPath, lines.join('\n'), 'utf8');
+
   console.log(`Updated ${path.relative(rootDir, indexPath).replaceAll(path.sep, '/')}`);
 }
 
