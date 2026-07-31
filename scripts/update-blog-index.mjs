@@ -67,7 +67,7 @@ lines = [
     ];
   }
 
-  await writeFile(indexPath, lines.join('\n<br>'), 'utf8');
+  await writeFile(indexPath, lines.join('\n'), 'utf8');
   console.log(`Updated ${path.relative(rootDir, indexPath).replaceAll(path.sep, '/')}`);
 }
 
