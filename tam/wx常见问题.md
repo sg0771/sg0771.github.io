@@ -1,3 +1,22 @@
+# 日志
+
+
+WPS视频压缩
+%appdata%\Apowersoft\VideoConvertCompress\log
+
+录屏
+%appdata%\Apowersoft\ApowerRec\log
+
+视频编辑
+%appdata%\Apowersoft\Beecut\log
+
+WPS视频编辑
+%appdata%\Apowersoft\WPSVideoEdit\log
+
+
+投屏
+%appdata%\Apowersoft\AppowerMirror\log
+
 # 中文路径问题
 
 日志和配置文件依赖于 %appdata% 路径
