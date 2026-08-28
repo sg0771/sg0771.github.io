@@ -1,6 +1,5 @@
 # 日志
 
-
 WPS视频压缩
 %appdata%\Apowersoft\VideoConvertCompress\log
 
@@ -16,6 +15,15 @@ WPS视频编辑
 
 投屏
 %appdata%\Apowersoft\AppowerMirror\log
+
+
+# WPS 视频压缩在 高通ARM芯片 Windows 无法启动
+
+进入 %APPDATA%\Apowersoft\VideoConvertCompress\log 读取日志，确认使用的是212版本，656版本比较老，只能运行在x86芯片上 
+
+# WPS 视频压缩无法转码
+目前不支持4K分辨率
+
 
 # 中文路径问题
 
