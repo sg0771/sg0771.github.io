@@ -14,7 +14,7 @@ WPS视频编辑
 
 
 投屏
-%appdata%\Apowersoft\AppowerMirror\log
+%appdata%\Apowersoft\ApowerMirror\log
 
 
 # WPS 视频压缩在 高通ARM芯片 Windows 无法启动
@@ -23,6 +23,12 @@ WPS视频编辑
 
 # WPS 视频压缩无法转码
 目前不支持4K分辨率
+
+# 摄像头黑框，但是仅仅录制摄像头和播放器正常
+
+![摄像头黑框](https://blog.xkt.space/tam/camera_black.png "摄像头黑框")
+
+删除 %appdata%\Apowersoft\ApowerRec 所有内容，重启软件
 
 
 # 中文路径问题
